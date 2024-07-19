@@ -1,0 +1,26 @@
+.maindiv {
+  border: 2px solid red;
+  margin-bottom: 5px;
+  width: 400px;
+  height: 300px;
+  text-align: left;
+  padding: 2px;
+}
+.greendiv {
+  border: 2px solid green;
+  margin-bottom: 5px;
+  width: 400px;
+  height: 250px;
+  text-align: left;
+  padding: 2px;
+}
+.otherData {
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-right: 98px;
+}
+.updatebtn,
+.deletebtn {
+  border: 1px solid black;
+  margin-top: 10px;
+}
