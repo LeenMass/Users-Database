@@ -2,11 +2,16 @@ import { getTodosPerUser } from "../utils";
 import React, { useEffect, useState } from "react";
 import "./User.css";
 import OtherData from "./OtherData";
+import Todos from "./Todos";
+import Posts from "./Posts";
+
 export default function User(props) {
   const userObj = props.data;
   const [user, setUser] = useState({ name: "", email: "" });
   const [Isexist, setIsExist] = useState(false);
   const [isCom, setIscompleted] = useState(false);
+  const [isShow, setIsshow] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -23,8 +28,13 @@ export default function User(props) {
   }, []);
   return (
     <>
-      <div className={isCom ? "greendiv" : "maindiv"}>
-        <strong>ID:</strong>
+      <div
+        className={isCom ? "greendiv" : "maindiv"}
+        style={{ backgroundColor: isShow ? "orange" : "" }}
+      >
+        <strong onClick={() => setIsshow(!isShow)} style={{ cursor: "grab" }}>
+          ID:
+        </strong>
         {userObj.id}
         <br />
         <strong>Name: </strong>
@@ -49,6 +59,16 @@ export default function User(props) {
         {Isexist ? <OtherData moreData={userObj} /> : ""}
         <button className="updatebtn">Update</button>
         <button className="deletebtn">Delete</button>
+      </div>
+      <div>
+        {isShow ? (
+          <div style={{ display: "flex" }}>
+            <Todos userId={userObj.id} /> <br />
+            <Posts userId={userObj.id} />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

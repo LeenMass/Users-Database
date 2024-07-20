@@ -6,4 +6,5 @@ const TODOS_URL = "https://jsonplaceholder.typicode.com/todos";
 
 const getUsers = () => axios.get(USERS_URL);
 const getTodosPerUser = (id) => axios.get(`${TODOS_URL}?userId=${id}`);
-export { getUsers, getTodosPerUser };
+const getPostsPerUser = (id) => axios.get(`${POSTS_URL}?userId=${id}`);
+export { getUsers, getTodosPerUser, getPostsPerUser };
