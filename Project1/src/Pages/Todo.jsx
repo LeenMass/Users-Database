@@ -11,22 +11,16 @@ export default function Todo(props) {
       }}
     >
       <strong>Title:</strong>
-      {props.data.title}
+      {props.data?.title}
       <br />
 
       <strong>Completed:</strong>
-      {!props.data.completed ? (
-        <>
-          False
-          <div style={{ float: "right" }}>
-            <button style={{ border: "2px solid black", width: "200px" }}>
-              Mark completed
-            </button>
-          </div>
-        </>
-      ) : (
-        "True"
-      )}
+
+      <div style={{ float: "right" }}>
+        <button style={{ border: "2px solid black", width: "200px" }}>
+          Mark completed
+        </button>
+      </div>
     </div>
   );
 }

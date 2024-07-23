@@ -17,19 +17,20 @@ export default function User(props) {
     setUser({ ...user, [name]: value });
   };
 
-  const checkTodo = async () => {
-    const { data } = await getTodosPerUser(userObj.id);
-    const isCompleted = data.map((item) => item.completed);
-    const z = isCompleted.every((item) => item == true);
-    setIscompleted(z);
-  };
+  // const checkTodo = async () => {
+  //   const { data } = await getTodosPerUser(userObj.id);
+  //   const isCompleted = data.map((item) => item.completed);
+  //   const z = isCompleted.every((item) => item == true);
+  //   setIscompleted(z);
+  //   console.log(isCom);
+  // };
   useEffect(() => {
-    checkTodo();
+    // checkTodo();
   }, []);
   return (
     <>
       <div
-        className={isCom ? "greendiv" : "maindiv"}
+        className="maindiv"
         style={{ backgroundColor: isShow ? "orange" : "" }}
       >
         <strong onClick={() => setIsshow(!isShow)} style={{ cursor: "grab" }}>
@@ -38,20 +39,10 @@ export default function User(props) {
         {userObj.id}
         <br />
         <strong>Name: </strong>
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          defaultValue={userObj.name}
-        />
+        <input type="text" name="name" onChange={handleChange} />
         <br />
         <strong>Email: </strong>
-        <input
-          type="text"
-          name="email"
-          onChange={handleChange}
-          defaultValue={userObj.email}
-        />
+        <input type="text" name="email" onChange={handleChange} />
         <br />
         <button className="otherData" onMouseOver={() => setIsExist(!Isexist)}>
           Other Data
