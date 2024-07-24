@@ -11,13 +11,25 @@ export default function OtherData(props) {
       }}
     >
       <strong>Street:</strong>
-      <input defaultValue={props.moreData.address?.street} />
+      <input
+        name="street"
+        defaultValue={props.moreData.address?.street}
+        onChange={props.data}
+      />
       <br />
       <strong>City:</strong>
-      <input defaultValue={props.moreData.address?.city} />
+      <input
+        name="city"
+        defaultValue={props.moreData.address?.city}
+        onChange={props.data}
+      />
       <br />
       <strong>Zip Code:</strong>
-      <input defaultValue={props.moreData.address?.zipcode} />
+      <input
+        name="zipcode"
+        defaultValue={props.moreData.address?.zipcode}
+        onChange={props.data}
+      />
     </div>
   );
 }

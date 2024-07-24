@@ -7,7 +7,7 @@ export default function AddUser(props) {
     email: "",
   });
   const handleSubmit = (e) => {
-    const { name: value } = e.target;
+    const { name, value } = e.target;
     setNUser({ ...userN, [name]: value });
   };
   const addNewUser = async () => {
@@ -16,17 +16,23 @@ export default function AddUser(props) {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        border: "2px solid black",
+        float: "right",
+        width: "300px",
+      }}
+    >
       Add New User
       <br />
-      <div style={{ border: "2px solid black", width: "270px" }}>
-        <strong>Name:</strong>{" "}
-        <input type="text" name="name" onChange={handleSubmit} />
-        <strong>Email:</strong>{" "}
-        <input type="text" name="email" onChange={handleSubmit} />
-        <button onClick={addNewUser}>Add</button>
-        <button onClick={props.func}>Cancel</button>
-      </div>
+      <strong>Name:</strong>{" "}
+      <input type="text" name="name" onChange={handleSubmit} />
+      <br />
+      <strong>Email:</strong>{" "}
+      <input type="text" name="email" onChange={handleSubmit} />
+      <br />
+      <button onClick={addNewUser}>Add</button>
+      <button onClick={props.func}>Cancel</button>
     </div>
   );
 }

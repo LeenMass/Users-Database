@@ -1,4 +1,4 @@
-import { getTodosPerUser } from "../utils";
+import { deleteUser, getTodosPerUser, updateUser } from "../utils";
 import React, { useEffect, useState } from "react";
 import "./User.css";
 import OtherData from "./OtherData";
@@ -7,7 +7,13 @@ import Posts from "./Posts";
 
 export default function User(props) {
   const userObj = props.data;
-  const [user, setUser] = useState({ name: "", email: "" });
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    street: "",
+    city: "",
+    zipcode: "",
+  });
   const [Isexist, setIsExist] = useState(false);
   const [isCom, setIscompleted] = useState(false);
   const [isShow, setIsshow] = useState(false);
@@ -16,7 +22,14 @@ export default function User(props) {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-
+  const updateUserD = async () => {
+    const { data } = await updateUser(userObj.id, user);
+    console.log(data);
+  };
+  const deleteUserD = async () => {
+    const { data } = await deleteUser(userObj.id);
+    console.log(data);
+  };
   // const checkTodo = async () => {
   //   const { data } = await getTodosPerUser(userObj.id);
   //   const isCompleted = data.map((item) => item.completed);
@@ -39,17 +52,31 @@ export default function User(props) {
         {userObj.id}
         <br />
         <strong>Name: </strong>
-        <input type="text" name="name" onChange={handleChange} />
+        <input
+          type="text"
+          name="name"
+          onChange={handleChange}
+          defaultValue={userObj.name}
+        />
         <br />
         <strong>Email: </strong>
-        <input type="text" name="email" onChange={handleChange} />
+        <input
+          type="text"
+          name="email"
+          onChange={handleChange}
+          defaultValue={userObj.email}
+        />
         <br />
         <button className="otherData" onMouseOver={() => setIsExist(!Isexist)}>
           Other Data
         </button>
-        {Isexist ? <OtherData moreData={userObj} /> : ""}
-        <button className="updatebtn">Update</button>
-        <button className="deletebtn">Delete</button>
+        {Isexist ? <OtherData moreData={userObj} data={handleChange} /> : ""}
+        <button className="updatebtn" onClick={updateUserD}>
+          Update
+        </button>
+        <button className="deletebtn" onClick={deleteUserD}>
+          Delete
+        </button>
       </div>
       <div>
         {isShow ? (

@@ -10,4 +10,6 @@ const getPostsPerUser = (id) => axios.get(`${POSTS_URL}?userId=${id}`);
 const newTodoUser = (obj) => axios.post(`${TODOS_URL}`, obj)
 const newPostUser = (obj) => axios.post(`${POSTS_URL}`, obj)
 const newUser = (obj) => axios.post(`${USERS_URL}`, obj)
-export { getUsers, getTodosPerUser, getPostsPerUser, newTodoUser, newPostUser, newUser };
+const updateUser = (id, obj) => axios.put(`${USERS_URL}/${id}`, obj);
+const deleteUser = (id) => axios.delete(`${USERS_URL}/${id}`);
+export { getUsers, getTodosPerUser, getPostsPerUser, newTodoUser, newPostUser, newUser, updateUser, deleteUser };

@@ -5,6 +5,7 @@
   height: 300px;
   text-align: left;
   padding: 2px;
+  float: left;
 }
 .greendiv {
   border: 2px solid green;
