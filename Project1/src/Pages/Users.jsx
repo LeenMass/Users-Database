@@ -6,6 +6,7 @@ export default function Users() {
   const [users, setUsers] = useState([]);
   const [addUser, setAddUser] = useState(false);
   const [cancel, setCancel] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
 
   const addUserWindow = () => {
     setAddUser(!addUser);
@@ -15,19 +16,38 @@ export default function Users() {
     const { data } = await getUsers();
     setUsers(data);
   };
+  const handleSearch = () => {
+    if (searchInput.length > 0) {
+      users.filter((user) => {
+        console.log(user?.name.match(searchInput));
+        return user?.name.match(searchInput);
+      });
+    }
+  };
   useEffect(() => {
     getAllUsers();
   }, []);
+  useEffect(() => {
+    handleSearch();
+  }, [searchInput]);
+
   return (
     <div>
       {!addUser ? (
-        <div>
+        <>
           {" "}
+          <input
+            type="search"
+            onChange={(e) => setSearchInput(e.target.value.toLocaleLowerCase())}
+            value={searchInput}
+          />
           <button onClick={addUserWindow}>Add</button>
-          {users.map((user) => {
-            return <User data={user} key={user.id} />;
-          })}
-        </div>
+          {users
+            .filter((user) => user.name.toLocaleLowerCase().match(searchInput))
+            .map((user) => {
+              return <User data={user} key={user.id} />;
+            })}
+        </>
       ) : (
         <AddUser func={addUserWindow} />
       )}
