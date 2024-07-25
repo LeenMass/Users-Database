@@ -16,20 +16,16 @@ export default function Users() {
     const { data } = await getUsers();
     setUsers(data);
   };
-  const handleSearch = () => {
-    if (searchInput.length > 0) {
-      users.filter((user) => {
-        console.log(user?.name.match(searchInput));
-        return user?.name.match(searchInput);
-      });
-    }
+  const handleUserDeleted = (deletedUserId) => {
+    setUsers(users.filter((user) => user.id !== deletedUserId));
   };
+  const usersCallback = (newuser) => {
+    set([...users, newuser]);
+  };
+
   useEffect(() => {
     getAllUsers();
   }, []);
-  useEffect(() => {
-    handleSearch();
-  }, [searchInput]);
 
   return (
     <div>
@@ -45,11 +41,17 @@ export default function Users() {
           {users
             .filter((user) => user.name.toLocaleLowerCase().match(searchInput))
             .map((user) => {
-              return <User data={user} key={user.id} />;
+              return (
+                <User
+                  data={user}
+                  key={user.id}
+                  deleteuser={handleUserDeleted}
+                />
+              );
             })}
         </>
       ) : (
-        <AddUser func={addUserWindow} />
+        <AddUser func={addUserWindow} callback={usersCallback} />
       )}
     </div>
   );

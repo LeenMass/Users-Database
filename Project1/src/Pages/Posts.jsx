@@ -12,6 +12,9 @@ export default function Posts(props) {
     setAddPost(!addPost);
     setCancel(!cancel);
   };
+  const postsCallback = (post) => {
+    setPosts([...posts, post]);
+  };
   const getAllPosts = async () => {
     const { data } = await getPostsPerUser(props.userId);
     setPosts(data);
@@ -30,7 +33,11 @@ export default function Posts(props) {
           })}
         </>
       ) : (
-        <AddPost userId={props.userId} func={addPostWindow} />
+        <AddPost
+          userId={props.userId}
+          func={addPostWindow}
+          callback={postsCallback}
+        />
       )}
     </div>
   );

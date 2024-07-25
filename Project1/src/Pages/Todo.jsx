@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
 export default function Todo(props) {
+  const [mark, setMark] = useState(props.data.completed);
+  const click = () => {
+    setMark(!mark);
+    props.func(!mark);
+  };
   return (
     <div
       style={{
@@ -15,12 +20,19 @@ export default function Todo(props) {
       <br />
 
       <strong>Completed:</strong>
-
-      <div style={{ float: "right" }}>
-        <button style={{ border: "2px solid black", width: "200px" }}>
-          Mark completed
-        </button>
-      </div>
+      {mark ? (
+        "True"
+      ) : (
+        <div style={{ float: "right" }}>
+          False
+          <button
+            style={{ border: "2px solid black", width: "200px" }}
+            onClick={click}
+          >
+            Mark completed
+          </button>
+        </div>
+      )}
     </div>
   );
 }

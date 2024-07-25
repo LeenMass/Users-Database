@@ -1,79 +1,94 @@
-import { deleteUser, getTodosPerUser, updateUser } from "../utils";
-import React, { useEffect, useState } from "react";
+import { deleteUser, updateUser } from "../utils";
+import React, { useState } from "react";
 import "./User.css";
 import OtherData from "./OtherData";
 import Todos from "./Todos";
 import Posts from "./Posts";
 
 export default function User(props) {
-  const userObj = props.data;
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    street: "",
-    city: "",
-    zipcode: "",
-  });
+  const [edit, setEdit] = useState(false);
+  const [updatuser, setUpdateuser] = useState(props.data);
   const [Isexist, setIsExist] = useState(false);
-  const [isCom, setIscompleted] = useState(false);
+  const [completed, setIscompleted] = useState(false);
   const [isShow, setIsshow] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setUpdateuser({
+      ...updatuser,
+      [name]: value,
+    });
   };
+
   const updateUserD = async () => {
-    const { data } = await updateUser(userObj.id, user);
-    console.log(data);
+    const { data } = await updateUser(props.data.id, updatuser);
+    setUpdateuser(data);
+    setEdit(false);
+  };
+  const handleEditClick = () => {
+    setEdit(true);
   };
   const deleteUserD = async () => {
-    const { data } = await deleteUser(userObj.id);
-    console.log(data);
+    await deleteUser(props.data.id);
+    props.deleteuser(props.data.id);
   };
-  // const checkTodo = async () => {
-  //   const { data } = await getTodosPerUser(userObj.id);
-  //   const isCompleted = data.map((item) => item.completed);
-  //   const z = isCompleted.every((item) => item == true);
-  //   setIscompleted(z);
-  //   console.log(isCom);
-  // };
-  useEffect(() => {
-    // checkTodo();
-  }, []);
+
   return (
     <>
       <div
-        className="maindiv"
+        className={!completed ? "maindiv" : "greendiv"}
         style={{ backgroundColor: isShow ? "orange" : "" }}
       >
-        <strong onClick={() => setIsshow(!isShow)} style={{ cursor: "grab" }}>
-          ID:
-        </strong>
-        {userObj.id}
-        <br />
-        <strong>Name: </strong>
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          defaultValue={userObj.name}
-        />
-        <br />
-        <strong>Email: </strong>
-        <input
-          type="text"
-          name="email"
-          onChange={handleChange}
-          defaultValue={userObj.email}
-        />
-        <br />
+        {edit ? (
+          <>
+            <br />
+            <strong>Name: </strong>
+            <input
+              type="text"
+              name="name"
+              value={updatuser.name}
+              onChange={handleChange}
+            />
+            <br />
+            <strong>Email: </strong>
+            <input
+              type="text"
+              name="email"
+              value={updatuser.email}
+              onChange={handleChange}
+            />
+            <br />
+          </>
+        ) : (
+          <>
+            <strong
+              onClick={() => setIsshow(!isShow)}
+              style={{ cursor: "grab" }}
+            >
+              ID:{props.data.id}{" "}
+            </strong>
+            <br />
+            <strong>Name: </strong>
+            {updatuser.name} <br />
+            <strong>Email: </strong>
+            {updatuser.email} <br />
+          </>
+        )}
+
         <button className="otherData" onMouseOver={() => setIsExist(!Isexist)}>
           Other Data
         </button>
-        {Isexist ? <OtherData moreData={userObj} data={handleChange} /> : ""}
-        <button className="updatebtn" onClick={updateUserD}>
-          Update
-        </button>
+        {Isexist ? <OtherData moreData={props.data} data={handleChange} /> : ""}
+        {edit && (
+          <button className="updatebtn" onClick={updateUserD}>
+            Update
+          </button>
+        )}
+        {!edit && (
+          <button className="updatebtn" onClick={handleEditClick}>
+            edit
+          </button>
+        )}
         <button className="deletebtn" onClick={deleteUserD}>
           Delete
         </button>
@@ -81,8 +96,8 @@ export default function User(props) {
       <div>
         {isShow ? (
           <div style={{ display: "flex" }}>
-            <Todos userId={userObj.id} /> <br />
-            <Posts userId={userObj.id} />
+            <Todos userId={props.data.id} e={setIscompleted} /> <br />
+            <Posts userId={props.data.id} />
           </div>
         ) : (
           ""

@@ -16,6 +16,9 @@ export default function Todos(props) {
     const { data } = await getTodosPerUser(props.userId);
     setTodos(data);
   };
+  const todosCallback = (newtodo) => {
+    setTodos([...todos, newtodo]);
+  };
   useEffect(() => {
     getAllTodos();
   }, []);
@@ -27,11 +30,11 @@ export default function Todos(props) {
           Todos-User {props.userId}
           <button onClick={btn}>Add</button>
           {todos.map((todo) => {
-            return <Todo data={todo} key={todo.id} />;
+            return <Todo data={todo} key={todo.id} func={props.e} />;
           })}
         </>
       ) : (
-        <AddTodo userId={props.userId} func={btn} />
+        <AddTodo userId={props.userId} func={btn} callback={todosCallback} />
       )}
     </div>
   );
