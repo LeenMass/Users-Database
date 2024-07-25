@@ -11,8 +11,8 @@ export default function AddUser(props) {
     setNUser({ ...userN, [name]: value });
   };
   const addNewUser = async () => {
-    await newUser(userN);
-    props.callback(userN);
+    const { data } = await newUser(userN);
+    props.callback(data);
   };
 
   return (

@@ -20,7 +20,7 @@ export default function Users() {
     setUsers(users.filter((user) => user.id !== deletedUserId));
   };
   const usersCallback = (newuser) => {
-    set([...users, newuser]);
+    setUsers([...users, newuser]);
   };
 
   useEffect(() => {

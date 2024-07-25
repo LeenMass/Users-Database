@@ -5,8 +5,8 @@ export default function AddTodo(props) {
   const [newTodo, setNewTodo] = useState({ userId: props.userId, title: "" });
 
   const addNewTodo = async () => {
-    await newTodoUser(newTodo);
-    props.callback(newTodo);
+    const { data } = await newTodoUser(newTodo);
+    props.callback(data);
   };
 
   return (

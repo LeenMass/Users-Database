@@ -9,8 +9,8 @@ export default function AddPost(props) {
   });
 
   const addNewPost = async () => {
-    await newPostUser(newPost);
-    props.callback(newPost);
+    const { data } = await newPostUser(newPost);
+    props.callback(data);
   };
 
   return (
