@@ -12,6 +12,7 @@ export default function Todos(props) {
     setClick(!click);
     setClose(!close);
   };
+
   const getAllTodos = async () => {
     const { data } = await getTodosPerUser(props.userId);
     setTodos(data);
@@ -22,6 +23,7 @@ export default function Todos(props) {
   useEffect(() => {
     getAllTodos();
   }, []);
+
   return (
     <div>
       <br />
@@ -30,7 +32,9 @@ export default function Todos(props) {
           Todos-User {props.userId}
           <button onClick={btn}>Add</button>
           {todos.map((todo) => {
-            return <Todo data={todo} key={todo.id} func={props.e} />;
+            return (
+              <Todo data={todo} key={todo.id} changeColor={props.changeColor} />
+            );
           })}
         </>
       ) : (

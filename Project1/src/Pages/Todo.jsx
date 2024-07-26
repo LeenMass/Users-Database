@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 export default function Todo(props) {
   const [mark, setMark] = useState(props.data.completed);
+
   const click = () => {
     setMark(!mark);
-    props.func(!mark);
+    props.changeColor(!mark);
   };
+
   return (
     <div
       style={{

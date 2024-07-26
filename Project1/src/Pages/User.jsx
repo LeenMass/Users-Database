@@ -1,5 +1,5 @@
 import { deleteUser, updateUser } from "../utils";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./User.css";
 import OtherData from "./OtherData";
 import Todos from "./Todos";
@@ -9,8 +9,9 @@ export default function User(props) {
   const [edit, setEdit] = useState(false);
   const [updatuser, setUpdateuser] = useState(props.data);
   const [Isexist, setIsExist] = useState(false);
-  const [completed, setIscompleted] = useState(false);
+  const [completed, setIscompleted] = useState(true);
   const [isShow, setIsshow] = useState(false);
+  const [todof, setTodof] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +19,9 @@ export default function User(props) {
       ...updatuser,
       [name]: value,
     });
+  };
+  const changeColor = (f) => {
+    setTodof([...todof, f]);
   };
 
   const updateUserD = async () => {
@@ -32,12 +36,17 @@ export default function User(props) {
     await deleteUser(props.data.id);
     props.deleteuser(props.data.id);
   };
-
+  useEffect(() => {
+    let x = todof.every((e) => e !== true);
+    setIscompleted(!x);
+  }, [completed]);
   return (
     <>
       <div
-        className={!completed ? "maindiv" : "greendiv"}
-        style={{ backgroundColor: isShow ? "orange" : "" }}
+        className={completed ? "greendiv" : "maindiv"}
+        style={{
+          backgroundColor: isShow ? "orange" : "",
+        }}
       >
         {edit ? (
           <>
@@ -96,7 +105,7 @@ export default function User(props) {
       <div>
         {isShow ? (
           <div style={{ display: "flex" }}>
-            <Todos userId={props.data.id} e={setIscompleted} /> <br />
+            <Todos userId={props.data.id} changeColor={changeColor} /> <br />
             <Posts userId={props.data.id} />
           </div>
         ) : (
