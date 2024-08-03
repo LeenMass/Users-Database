@@ -36,7 +36,9 @@ export default function Users() {
             onChange={(e) => setSearchInput(e.target.value.toLocaleLowerCase())}
             value={searchInput}
           />
-          <button onClick={addUserWindow}>Add</button>
+          <button onClick={addUserWindow} style={{ border: "2px solid black" }}>
+            Add
+          </button>
           {users
             .filter((user) => user.name.toLocaleLowerCase().match(searchInput))
             .map((user) => {

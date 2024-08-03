@@ -30,7 +30,9 @@ export default function Todos(props) {
       {!click ? (
         <>
           Todos-User {props.userId}
-          <button onClick={btn}>Add</button>
+          <button onClick={btn} style={{ border: "2px solid black" }}>
+            Add
+          </button>
           <div
             style={{
               border: "1px solid black",

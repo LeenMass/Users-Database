@@ -5,7 +5,6 @@ export default function Post(props) {
     <div
       style={{
         border: "2px solid black",
-        width: "350px",
         margin: "20px",
       }}
     >

@@ -13,10 +13,11 @@ export default function AddUser(props) {
   const addNewUser = async () => {
     const { data } = await newUser(userN);
     props.callback(data);
+    alert("Adding User done Successfully");
   };
 
   return (
-    <div>
+    <>
       Add New User
       <br />
       <strong>Name:</strong>{" "}
@@ -27,6 +28,6 @@ export default function AddUser(props) {
       <br />
       <button onClick={addNewUser}>Add</button>
       <button onClick={props.func}>Cancel</button>
-    </div>
+    </>
   );
 }

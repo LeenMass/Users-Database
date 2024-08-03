@@ -27,7 +27,10 @@ export default function Posts(props) {
       <br />
       {!addPost ? (
         <>
-          Posts-User {props.userId} <button onClick={addPostWindow}>Add</button>
+          Posts-User {props.userId}{" "}
+          <button onClick={addPostWindow} style={{ border: "2px solid black" }}>
+            Add
+          </button>
           <div
             style={{
               border: "1px solid black",

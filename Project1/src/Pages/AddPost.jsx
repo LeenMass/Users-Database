@@ -11,13 +11,20 @@ export default function AddPost(props) {
   const addNewPost = async () => {
     const { data } = await newPostUser(newPost);
     props.callback(data);
+    alert("Adding Post done Successfully");
   };
 
   return (
-    <div>
+    <>
       New Post-User{props.userId}
       <br />
-      <div style={{ border: "2px solid black", width: "270px" }}>
+      <div
+        style={{
+          border: "2px solid black",
+          width: "270px",
+          marginLeft: "30px",
+        }}
+      >
         <strong>Title:</strong>{" "}
         <input
           type="text"
@@ -31,6 +38,6 @@ export default function AddPost(props) {
         <button onClick={addNewPost}>Add</button>
         <button onClick={props.func}>Cancel</button>
       </div>
-    </div>
+    </>
   );
 }
