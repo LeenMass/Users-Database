@@ -23,14 +23,22 @@ export default function Posts(props) {
     getAllPosts();
   }, []);
   return (
-    <div>
+    <>
       <br />
       {!addPost ? (
         <>
           Posts-User {props.userId} <button onClick={addPostWindow}>Add</button>
-          {posts.map((post) => {
-            return <Post data={post} key={post.id} />;
-          })}
+          <div
+            style={{
+              border: "1px solid black",
+              width: "400px",
+              marginLeft: "133px",
+            }}
+          >
+            {posts.map((post) => {
+              return <Post data={post} key={post.id} />;
+            })}
+          </div>
         </>
       ) : (
         <AddPost
@@ -39,6 +47,6 @@ export default function Posts(props) {
           callback={postsCallback}
         />
       )}
-    </div>
+    </>
   );
 }

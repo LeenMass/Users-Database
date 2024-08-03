@@ -1,20 +1,17 @@
 .maindiv {
   border: 2px solid red;
   margin-bottom: 5px;
-  width: 400px;
   height: 300px;
   text-align: left;
-  padding: 2px;
-  float: left;
+  width: 400px;
 }
 .greendiv {
   border: 2px solid green;
   margin-bottom: 5px;
-  width: 400px;
-  height: 250px;
-  text-align: left;
+  height: 300px;
   padding: 2px;
-  float: left;
+  text-align: left;
+  width: 400px;
 }
 .otherData {
   border: 1px solid black;

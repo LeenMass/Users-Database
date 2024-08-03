@@ -12,9 +12,9 @@ export default function Todo(props) {
     <div
       style={{
         border: "2px solid black",
-        float: "right",
+        width: "420px",
+        margin: "20px",
         textAlign: "left",
-        width: "400px",
       }}
     >
       <strong>Title:</strong>
@@ -25,15 +25,22 @@ export default function Todo(props) {
       {mark ? (
         "True"
       ) : (
-        <div style={{ float: "right" }}>
+        <>
           False
           <button
-            style={{ border: "2px solid black", width: "200px" }}
+            style={{
+              border: "2px solid black",
+              width: "200px",
+              height: "34px",
+              padding: "4px",
+              marginBottom: "5px",
+              marginLeft: "94px",
+            }}
             onClick={click}
           >
             Mark completed
           </button>
-        </div>
+        </>
       )}
     </div>
   );

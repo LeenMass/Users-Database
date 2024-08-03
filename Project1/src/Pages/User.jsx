@@ -42,70 +42,79 @@ export default function User(props) {
   }, [completed]);
   return (
     <>
-      <div
-        className={completed ? "greendiv" : "maindiv"}
-        style={{
-          backgroundColor: isShow ? "orange" : "",
-        }}
-      >
-        {edit ? (
-          <>
-            <br />
-            <strong>Name: </strong>
-            <input
-              type="text"
-              name="name"
-              value={updatuser.name}
-              onChange={handleChange}
-            />
-            <br />
-            <strong>Email: </strong>
-            <input
-              type="text"
-              name="email"
-              value={updatuser.email}
-              onChange={handleChange}
-            />
-            <br />
-          </>
-        ) : (
-          <>
-            <strong
-              onClick={() => setIsshow(!isShow)}
-              style={{ cursor: "grab" }}
-            >
-              ID:{props.data.id}{" "}
-            </strong>
-            <br />
-            <strong>Name: </strong>
-            {updatuser.name} <br />
-            <strong>Email: </strong>
-            {updatuser.email} <br />
-          </>
-        )}
+      <div style={{ display: "flex" }}>
+        <div
+          className={completed ? "greendiv" : "maindiv"}
+          style={{
+            backgroundColor: isShow ? "orange" : "",
+          }}
+        >
+          {edit ? (
+            <>
+              <br />
+              <strong>Name: </strong>
+              <input
+                type="text"
+                name="name"
+                value={updatuser.name}
+                onChange={handleChange}
+              />
+              <br />
+              <strong>Email: </strong>
+              <input
+                type="text"
+                name="email"
+                value={updatuser.email}
+                onChange={handleChange}
+              />
+              <br />
+            </>
+          ) : (
+            <>
+              <strong
+                onClick={() => setIsshow(!isShow)}
+                style={{ cursor: "grab" }}
+              >
+                ID:{props.data.id}{" "}
+              </strong>
+              <br />
+              <strong>Name: </strong>
+              {updatuser.name} <br />
+              <strong>Email: </strong>
+              {updatuser.email} <br />
+            </>
+          )}
 
-        <button className="otherData" onMouseOver={() => setIsExist(!Isexist)}>
-          Other Data
-        </button>
-        {Isexist ? <OtherData moreData={props.data} data={handleChange} /> : ""}
-        {edit && (
-          <button className="updatebtn" onClick={updateUserD}>
-            Update
+          <button
+            className="otherData"
+            onMouseOver={() => setIsExist(!Isexist)}
+          >
+            Other Data
           </button>
-        )}
-        {!edit && (
-          <button className="updatebtn" onClick={handleEditClick}>
-            edit
+          {Isexist ? (
+            <OtherData moreData={props.data} data={handleChange} />
+          ) : (
+            ""
+          )}
+          {edit && (
+            <button className="updatebtn" onClick={updateUserD}>
+              Update
+            </button>
+          )}
+          {!edit && (
+            <button className="updatebtn" onClick={handleEditClick}>
+              edit
+            </button>
+          )}
+          <button className="deletebtn" onClick={deleteUserD}>
+            Delete
           </button>
-        )}
-        <button className="deletebtn" onClick={deleteUserD}>
-          Delete
-        </button>
-      </div>
-      <div>
+        </div>
+
         {isShow ? (
-          <div style={{ display: "flex" }}>
-            <Todos userId={props.data.id} changeColor={changeColor} /> <br />
+          <div style={{ float: "right" }}>
+            <Todos userId={props.data.id} changeColor={changeColor} />
+            <br />
             <Posts userId={props.data.id} />
           </div>
         ) : (

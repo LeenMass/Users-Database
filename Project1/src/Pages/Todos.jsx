@@ -31,11 +31,23 @@ export default function Todos(props) {
         <>
           Todos-User {props.userId}
           <button onClick={btn}>Add</button>
-          {todos.map((todo) => {
-            return (
-              <Todo data={todo} key={todo.id} changeColor={props.changeColor} />
-            );
-          })}
+          <div
+            style={{
+              border: "1px solid black",
+              width: "500px",
+              marginLeft: "133px",
+            }}
+          >
+            {todos.map((todo) => {
+              return (
+                <Todo
+                  data={todo}
+                  key={todo.id}
+                  changeColor={props.changeColor}
+                />
+              );
+            })}
+          </div>{" "}
         </>
       ) : (
         <AddTodo userId={props.userId} func={btn} callback={todosCallback} />

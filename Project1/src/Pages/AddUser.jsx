@@ -16,13 +16,7 @@ export default function AddUser(props) {
   };
 
   return (
-    <div
-      style={{
-        border: "2px solid black",
-        float: "right",
-        width: "300px",
-      }}
-    >
+    <div>
       Add New User
       <br />
       <strong>Name:</strong>{" "}

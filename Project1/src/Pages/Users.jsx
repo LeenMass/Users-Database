@@ -31,7 +31,6 @@ export default function Users() {
     <div>
       {!addUser ? (
         <>
-          {" "}
           <input
             type="search"
             onChange={(e) => setSearchInput(e.target.value.toLocaleLowerCase())}
@@ -46,12 +45,16 @@ export default function Users() {
                   data={user}
                   key={user.id}
                   deleteuser={handleUserDeleted}
+                  style={{ display: "block" }}
                 />
               );
             })}
         </>
       ) : (
-        <AddUser func={addUserWindow} callback={usersCallback} />
+        <div>
+          {" "}
+          <AddUser func={addUserWindow} callback={usersCallback} />
+        </div>
       )}
     </div>
   );

@@ -5,9 +5,8 @@ export default function Post(props) {
     <div
       style={{
         border: "2px solid black",
-        float: "right",
-        textAlign: "left",
-        width: "50%",
+        width: "350px",
+        margin: "20px",
       }}
     >
       <strong>Title:</strong>
