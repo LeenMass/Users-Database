@@ -43,16 +43,13 @@ Open in browser at: http://localhost:3000
 
 ## 📂 Project Structure
 project1/
-│
 ├── public/
-│
 ├── src/
-│ ├── pages/
-│ ├── assets/
-│ ├── App.js
-│ ├── utils.js
-│ └── index.js
-│
+│   ├── pages/
+│   ├── assets/
+│   ├── App.js
+│   ├── utils.js
+│   └── index.js
 └── package.json
 
 ---
