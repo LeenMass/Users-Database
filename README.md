@@ -42,14 +42,15 @@ Open in browser at: http://localhost:3000
 ---
 
 ## 📂 Project Structure
-project1/
-├── public/
+/project1
 
-├── src/
+├── /public
 
-│   ├── pages/
+├── /src
 
-│   ├── assets/
+│   ├── /pages
+
+│   ├── /assets
 
 │   ├── App.js
 
