@@ -55,8 +55,11 @@ package.json
 ```
 
 ---
-## 👨‍💻 Author
-**Leen Massarwy**  
-GitHub: [https://github.com/LeenMass](https://github.com/LeenMass)  
-LinkedIn: [https://www.linkedin.com/in/leen-massarwy](https://www.linkedin.com/in/leen-massarwy)
+
+##👨‍💻Author:**Leen Massarwy**
+
+## 📄 License
+
+MIT License © 2025
+
 
