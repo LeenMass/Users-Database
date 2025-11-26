@@ -1,6 +1,6 @@
 # Users-Database 
 
-## 📌 Project Overview
+## 📖 Overview
 This is an interactive React application for managing users, their posts, and tasks (Todos) using data from JSONPlaceholder.  
 The app initializes a client-side database from server data and allows full CRUD operations on users, including their posts and tasks.
 
