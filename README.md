@@ -28,7 +28,9 @@ The app initializes a client-side database from server data and allows full CRUD
 
 ### 1. Clone the repository and navigate to the folder:
 git clone https://github.com/LeenMass/Users-Database.git
+
 cd Users-Database
+
 cd project1
 
 ### 2. Install dependencies:
