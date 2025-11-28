@@ -37,7 +37,7 @@ cd project1
 npm install
 
 ### 3. Run the project:
-npm start
+npm run dev
 
 Open in browser at: http://localhost:3000
 
