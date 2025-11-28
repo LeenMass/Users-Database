@@ -1,11 +1,11 @@
 import { deleteUser, updateUser } from "../../utils";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./User.css";
 import OtherData from "./OtherData";
 import Todos from "../Todos/Todos";
 import Posts from "../Posts/Posts";
 
-export default function User(props) {
+const User = (props) => {
   const [edit, setEdit] = useState(false);
   const [updatuser, setUpdateuser] = useState(props.data);
   const [Isexist, setIsExist] = useState(false);
@@ -123,4 +123,5 @@ export default function User(props) {
       </div>
     </>
   );
-}
+};
+export default User;

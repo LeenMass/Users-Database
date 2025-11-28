@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { newUser } from "../utils";
 
-export default function AddUser(props) {
+const AddUser = (props) => {
   const [userN, setNUser] = useState({
     name: "",
     email: "",
@@ -30,4 +30,5 @@ export default function AddUser(props) {
       <button onClick={props.func}>Cancel</button>
     </>
   );
-}
+};
+export default AddUser;

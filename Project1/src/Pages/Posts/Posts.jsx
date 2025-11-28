@@ -3,7 +3,7 @@ import { getPostsPerUser } from "../../utils";
 import Post from "./Post";
 import AddPost from "../AddPost";
 
-export default function Posts(props) {
+const Posts = (props) => {
   const [posts, setPosts] = useState([]);
   const [addPost, setAddPost] = useState(false);
   const [cancel, setCancel] = useState(false);
@@ -52,4 +52,5 @@ export default function Posts(props) {
       )}
     </>
   );
-}
+};
+export default Posts;

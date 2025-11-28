@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { newPostUser } from "./utils";
 
-export default function AddPost(props) {
+const AddPost = (props) => {
   const [newPost, setNewPost] = useState({
     userId: props.userId,
     title: "",
@@ -40,4 +40,5 @@ export default function AddPost(props) {
       </div>
     </>
   );
-}
+};
+export default AddPost;

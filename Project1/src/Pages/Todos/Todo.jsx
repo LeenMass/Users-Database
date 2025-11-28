@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default function Todo(props) {
+const Todo = (props) => {
   const [mark, setMark] = useState(props.data.completed);
 
   const click = () => {
@@ -44,4 +44,5 @@ export default function Todo(props) {
       )}
     </div>
   );
-}
+};
+export default Todo;

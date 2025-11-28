@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function Post(props) {
+const Post = (props) => {
   return (
     <div
       style={{
@@ -16,4 +14,5 @@ export default function Post(props) {
       {props.data.body}
     </div>
   );
-}
+};
+export default Post;
