@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./User.css";
 import OtherData from "../OtherData";
 import Todos from "../Todos";
-import Posts from "../Posts";
+import Posts from "../Posts/Posts";
 
 export default function User(props) {
   const [edit, setEdit] = useState(false);
