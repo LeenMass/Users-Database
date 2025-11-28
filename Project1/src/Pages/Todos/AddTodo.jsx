@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { newTodoUser } from "../../utils";
 
-export default function AddTodo(props) {
+const AddTodo = (props) => {
   const [newTodo, setNewTodo] = useState({ userId: props.userId, title: "" });
 
   const addNewTodo = async () => {
@@ -31,4 +31,5 @@ export default function AddTodo(props) {
       </div>
     </>
   );
-}
+};
+export default AddTodo;

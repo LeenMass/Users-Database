@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getTodosPerUser } from "../../utils";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
-export default function Todos(props) {
+const Todos = (props) => {
   const [todos, setTodos] = useState([]);
   const [click, setClick] = useState(false);
   const [close, setClose] = useState(false);
@@ -56,4 +56,5 @@ export default function Todos(props) {
       )}
     </div>
   );
-}
+};
+export default Todos;
