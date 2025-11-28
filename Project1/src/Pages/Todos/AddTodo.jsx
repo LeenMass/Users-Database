@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { newTodoUser } from "../utils";
+import { newTodoUser } from "../../utils";
 
 export default function AddTodo(props) {
   const [newTodo, setNewTodo] = useState({ userId: props.userId, title: "" });
