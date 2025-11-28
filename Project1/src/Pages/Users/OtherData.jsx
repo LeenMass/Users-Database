@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function OtherData(props) {
+const OtherData = (props) => {
   return (
     <div
       style={{
@@ -32,4 +30,5 @@ export default function OtherData(props) {
       />
     </div>
   );
-}
+};
+export default OtherData;
