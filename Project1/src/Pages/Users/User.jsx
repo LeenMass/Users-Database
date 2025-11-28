@@ -1,8 +1,8 @@
 import { deleteUser, updateUser } from "../../utils";
 import React, { useEffect, useState } from "react";
 import "./User.css";
-import OtherData from "../OtherData";
-import Todos from "../Todos";
+import OtherData from "./OtherData";
+import Todos from "../Todos/Todos";
 import Posts from "../Posts/Posts";
 
 export default function User(props) {

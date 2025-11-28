@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getTodosPerUser } from "../utils";
+import { getTodosPerUser } from "../../utils";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
