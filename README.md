@@ -19,7 +19,8 @@ The app initializes a client-side database from server data and allows full CRUD
 
 ## ⚙️ Technologies
 - React.js  
-- JavaScript  
+- JavaScript
+- Axios
 - RESTful APIs (JSONPlaceholder)  
 - HTML & CSS
 ---
