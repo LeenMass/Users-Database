@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getPostsPerUser } from "../utils";
 import Post from "./Post";
-import AddPost from "./AddPost";
+import AddPost from "../AddPost";
 
 export default function Posts(props) {
   const [posts, setPosts] = useState([]);
