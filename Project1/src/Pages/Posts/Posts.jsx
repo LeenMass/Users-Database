@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getPostsPerUser } from "../utils";
+import { getPostsPerUser } from "../../utils";
 import Post from "./Post";
 import AddPost from "../AddPost";
 
