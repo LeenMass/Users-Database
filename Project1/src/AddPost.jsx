@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { newPostUser } from "../utils";
+import { newPostUser } from "./utils";
 
 export default function AddPost(props) {
   const [newPost, setNewPost] = useState({

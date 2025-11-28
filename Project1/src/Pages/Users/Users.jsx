@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { getUsers } from "../utils";
+import { useEffect, useState } from "react";
+import { getUsers } from "../../utils";
 import User from "./User";
-import AddUser from "./AddUser";
-export default function Users() {
+import AddUser from "../AddUser";
+
+const Users = () => {
   const [users, setUsers] = useState([]);
   const [addUser, setAddUser] = useState(false);
   const [cancel, setCancel] = useState(false);
@@ -60,4 +61,5 @@ export default function Users() {
       )}
     </div>
   );
-}
+};
+export default Users;

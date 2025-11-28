@@ -1,9 +1,9 @@
-import { deleteUser, updateUser } from "../utils";
+import { deleteUser, updateUser } from "../../utils";
 import React, { useEffect, useState } from "react";
 import "./User.css";
-import OtherData from "./OtherData";
-import Todos from "./Todos";
-import Posts from "./Posts";
+import OtherData from "../OtherData";
+import Todos from "../Todos";
+import Posts from "../Posts";
 
 export default function User(props) {
   const [edit, setEdit] = useState(false);
