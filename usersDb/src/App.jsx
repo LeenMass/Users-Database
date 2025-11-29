@@ -2,12 +2,7 @@ import Users from "./Pages/Users/Users";
 import "./App.css";
 
 const App = () => {
-  return (
-    <>
-      <br />
-      <Users />
-    </>
-  );
+  return <Users />;
 };
 
 export default App;
