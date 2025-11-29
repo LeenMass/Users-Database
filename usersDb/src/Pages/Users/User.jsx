@@ -1,4 +1,4 @@
-import { deleteUser, updateUser } from "../../utils";
+import { deleteUser, updateUser } from "./usersUtils";
 import { useEffect, useState } from "react";
 import "./User.css";
 import OtherData from "./OtherData";
@@ -25,16 +25,24 @@ const User = (props) => {
   };
 
   const updateUserD = async () => {
-    const { data } = await updateUser(props.data.id, updatuser);
-    setUpdateuser(data);
-    setEdit(false);
+    try {
+      const data = await updateUser(props.data.id, updatuser);
+      setUpdateuser(data);
+      setEdit(false);
+    } catch (error) {
+      alert("Failed to update user");
+    }
   };
   const handleEditClick = () => {
     setEdit(true);
   };
   const deleteUserD = async () => {
-    await deleteUser(props.data.id);
-    props.deleteuser(props.data.id);
+    try {
+      await deleteUser(props.data.id);
+      props.deleteuser(props.data.id);
+    } catch (error) {
+      alert("Failed to delete this user");
+    }
   };
   useEffect(() => {
     let x = todof.every((e) => e !== true);

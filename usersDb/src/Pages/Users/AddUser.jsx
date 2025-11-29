@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { newUser } from "../utils";
+import { newUser } from "./usersUtils";
 
 const AddUser = (props) => {
   const [userN, setNUser] = useState({
@@ -11,9 +11,13 @@ const AddUser = (props) => {
     setNUser({ ...userN, [name]: value });
   };
   const addNewUser = async () => {
-    const { data } = await newUser(userN);
-    props.callback(data);
-    alert("Adding User done Successfully");
+    try {
+      const data = await newUser(userN);
+      props.callback(data);
+      alert("Adding User done Successfully");
+    } catch (error) {
+      alert("Failed to add new user");
+    }
   };
 
   return (

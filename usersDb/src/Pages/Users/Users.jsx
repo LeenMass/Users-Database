@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getUsers } from "../../utils";
+import { getUsers } from "./usersUtils";
 import User from "./User";
-import AddUser from "../AddUser";
+import AddUser from "./AddUser";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -14,8 +14,12 @@ const Users = () => {
     setCancel(!cancel);
   };
   const getAllUsers = async () => {
-    const { data } = await getUsers();
-    setUsers(data);
+    try {
+      const data = await getUsers();
+      setUsers(data);
+    } catch (error) {
+      alert("Failed to get users");
+    }
   };
   const handleUserDeleted = (deletedUserId) => {
     setUsers(users.filter((user) => user.id !== deletedUserId));

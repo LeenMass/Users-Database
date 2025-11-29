@@ -14,8 +14,12 @@ const Todos = (props) => {
   };
 
   const getAllTodos = async () => {
-    const { data } = await getTodosPerUser(props.userId);
-    setTodos(data);
+    try {
+      const data = await getTodosPerUser(props.userId);
+      setTodos(data);
+    } catch (error) {
+      alert("Failed to get todos");
+    }
   };
   const todosCallback = (newtodo) => {
     setTodos([...todos, newtodo]);
