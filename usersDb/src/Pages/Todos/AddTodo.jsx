@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { newTodoUser } from "../../utils";
+import { newTodoUser } from "./todosUtils";
 
 const AddTodo = (props) => {
   const [newTodo, setNewTodo] = useState({ userId: props.userId, title: "" });
 
   const addNewTodo = async () => {
-    const { data } = await newTodoUser(newTodo);
-    props.callback(data);
-    alert("Adding Todo done Successfully");
+    try {
+      const { data } = await newTodoUser(newTodo);
+      props.callback(data);
+      alert("Adding Todo done Successfully");
+    } catch (error) {
+      alert("Failed to add todo");
+    }
   };
 
   return (
