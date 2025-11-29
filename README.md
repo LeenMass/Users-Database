@@ -32,7 +32,7 @@ git clone https://github.com/LeenMass/Users-Database.git
 
 cd Users-Database
 
-cd project1
+cd usersDb
 
 ### 2. Install dependencies:
 npm install
