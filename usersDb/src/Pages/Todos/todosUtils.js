@@ -6,7 +6,7 @@ const getTodosPerUser = async (id) => {
     try {
         const response = await axios.get(`${TODOS_URL}?userId=${id}`)
 
-        if (response.status !== 201) {
+        if (response.status !== 200) {
             throw new Error(`Failed to todos: ${response.status}`);
         }
 
