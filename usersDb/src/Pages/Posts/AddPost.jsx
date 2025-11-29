@@ -9,9 +9,13 @@ const AddPost = (props) => {
   });
 
   const addNewPost = async () => {
-    const { data } = await newPostUser(newPost);
-    props.callback(data);
-    alert("Adding Post done Successfully");
+    try {
+      const { data } = await newPostUser(newPost);
+      props.callback(data);
+      alert("Adding Post done Successfully");
+    } catch (error) {
+      alert("Failed to add new post");
+    }
   };
 
   return (
