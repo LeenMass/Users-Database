@@ -40,12 +40,12 @@ const updateUser = async (id, obj) => {
         if (response.status !== 200) {
             throw new Error(`Failed to update user's details: ${response.status}`);
         }
+        return response.data
     }
     catch (error) {
         throw new Error("An error occurred while updating user details");
 
     }
-    return response.data;
 }
 const deleteUser = async (id) => {
     try {

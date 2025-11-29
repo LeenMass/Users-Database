@@ -1,6 +1,6 @@
 import { deleteUser, updateUser } from "./usersUtils";
 import { useEffect, useState } from "react";
-import "./User.css";
+import "../../assets/User.css";
 import OtherData from "./OtherData";
 import Todos from "../Todos/Todos";
 import Posts from "../Posts/Posts";
