@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { newPostUser } from "./utils";
+import { newPostUser } from "./postsUtils";
 
 const AddPost = (props) => {
   const [newPost, setNewPost] = useState({

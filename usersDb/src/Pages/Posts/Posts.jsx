@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getPostsPerUser } from "../../utils";
 import Post from "./Post";
 import AddPost from "../AddPost";
@@ -16,8 +16,12 @@ const Posts = (props) => {
     setPosts([...posts, post]);
   };
   const getAllPosts = async () => {
-    const { data } = await getPostsPerUser(props.userId);
-    setPosts(data);
+    try {
+      const data = await getPostsPerUser(props.userId);
+      setPosts(data);
+    } catch (error) {
+      throw new Error("Failed to feching posts");
+    }
   };
   useEffect(() => {
     getAllPosts();

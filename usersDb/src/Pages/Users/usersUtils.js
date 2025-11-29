@@ -35,7 +35,6 @@ const newUser = async (obj) => {
 const updateUser = async (id, obj) => {
     try {
 
-
         const response = await axios.put(`${USERS_URL}/${id}`, obj);
 
         if (response.status !== 200) {
