@@ -61,7 +61,7 @@ package.json
 
 ---
 
-## 👨‍💻Author:**Leen Massarwy**
+## 👨‍💻Author: **Leen Massarwy**
 
 ## 📄 License
 
