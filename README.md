@@ -46,20 +46,22 @@ Open in browser at: http://localhost:3000
 
 ## 📂 Project Structure
 ```
-project1/
+usersDb/
   public/
   src/
    pages/
+     Posts/
+     Todos/
+     Users/
    assets/
    App.js
-   utils.js
    index.js
 package.json
 ```
 
 ---
 
-## 👨‍💻Author:**Leen Massarwy**
+## 👨‍💻Author: **Leen Massarwy**
 
 ## 📄 License
 
