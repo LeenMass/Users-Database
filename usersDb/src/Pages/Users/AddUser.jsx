@@ -27,7 +27,7 @@ const AddUser = (props) => {
       <strong>Email:</strong>{" "}
       <input type="text" name="email" onChange={handleSubmit} />
       <br />
-      <button onClick={addNewUser}>Add User</button>
+      <button onClick={addNewUser}>Add </button>
       <button onClick={props.AddingUserWindow}>Cancel</button>
     </>
   );
