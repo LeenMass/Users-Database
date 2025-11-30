@@ -46,7 +46,7 @@ Open in browser at: http://localhost:3000
 
 ## 📂 Project Structure
 ```
-project1/
+UsersDb/
   public/
   src/
    pages/
