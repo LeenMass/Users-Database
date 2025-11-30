@@ -1,4 +1,4 @@
-const Post = (props) => {
+const Post = ({ data }) => {
   return (
     <div
       style={{
@@ -7,11 +7,11 @@ const Post = (props) => {
       }}
     >
       <strong>Title:</strong>
-      {props.data.title}
+      {data.title}
       <br />
 
       <strong>Body:</strong>
-      {props.data.body}
+      {data.body}
     </div>
   );
 };

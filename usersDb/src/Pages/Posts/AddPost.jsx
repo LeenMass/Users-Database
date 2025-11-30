@@ -7,7 +7,10 @@ const AddPost = (props) => {
     title: "",
     body: "",
   });
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewPost({ ...newPost, [name]: value });
+  };
   const addNewPost = async () => {
     try {
       const { data } = await newPostUser(newPost);
@@ -17,7 +20,7 @@ const AddPost = (props) => {
       alert("Failed to add new post");
     }
   };
-
+  console.log(newPost);
   return (
     <>
       New Post-User{props.userId}
@@ -30,15 +33,9 @@ const AddPost = (props) => {
         }}
       >
         <strong>Title:</strong>{" "}
-        <input
-          type="text"
-          onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-        />
+        <input type="text" name="title" onChange={handleChange} />
         <strong>Body:</strong>{" "}
-        <input
-          type="text"
-          onChange={(e) => setNewPost({ ...newPost, body: e.target.value })}
-        />
+        <input type="text" name="body" onChange={handleChange} />
         <button onClick={addNewPost}>Add</button>
         <button onClick={props.func}>Cancel</button>
       </div>
