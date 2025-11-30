@@ -42,7 +42,7 @@ const Users = () => {
             value={searchInput}
           />
           <button onClick={addUserWindow} style={{ border: "2px solid black" }}>
-            Add
+            Add User
           </button>
           {users
             .filter((user) => user.name.toLocaleLowerCase().match(searchInput))
@@ -60,7 +60,10 @@ const Users = () => {
       ) : (
         <div>
           {" "}
-          <AddUser func={addUserWindow} callback={usersArray} />
+          <AddUser
+            AddingUserWindow={addUserWindow}
+            addUserToArray={usersArray}
+          />
         </div>
       )}
     </div>
