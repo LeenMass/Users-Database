@@ -24,7 +24,7 @@ const Users = () => {
   const handleUserDeleted = (deletedUserId) => {
     setUsers(users.filter((user) => user.id !== deletedUserId));
   };
-  const usersCallback = (newuser) => {
+  const usersArray = (newuser) => {
     setUsers([...users, newuser]);
   };
 
@@ -60,7 +60,7 @@ const Users = () => {
       ) : (
         <div>
           {" "}
-          <AddUser func={addUserWindow} callback={usersCallback} />
+          <AddUser func={addUserWindow} callback={usersArray} />
         </div>
       )}
     </div>

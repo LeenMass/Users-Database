@@ -2,18 +2,15 @@ import { useState } from "react";
 import { newUser } from "./usersUtils";
 
 const AddUser = (props) => {
-  const [userN, setNUser] = useState({
-    name: "",
-    email: "",
-  });
+  const [user, setUser] = useState({});
   const handleSubmit = (e) => {
     const { name, value } = e.target;
-    setNUser({ ...userN, [name]: value });
+    setUser({ ...user, [name]: value });
   };
   const addNewUser = async () => {
     try {
-      const data = await newUser(userN);
-      props.callback(data);
+      const data = await newUser(user);
+      props.addUserToArray(data);
       alert("Adding User done Successfully");
     } catch (error) {
       alert("Failed to add new user");
@@ -30,8 +27,8 @@ const AddUser = (props) => {
       <strong>Email:</strong>{" "}
       <input type="text" name="email" onChange={handleSubmit} />
       <br />
-      <button onClick={addNewUser}>Add</button>
-      <button onClick={props.func}>Cancel</button>
+      <button onClick={addNewUser}>Add User</button>
+      <button onClick={props.AddingUserWindow}>Cancel</button>
     </>
   );
 };

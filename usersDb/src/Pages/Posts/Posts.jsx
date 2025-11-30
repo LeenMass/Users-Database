@@ -15,12 +15,13 @@ const Posts = (props) => {
   const postsCallback = (post) => {
     setPosts([...posts, post]);
   };
+
   const getAllPosts = async () => {
     try {
       const data = await getPostsPerUser(props.userId);
       setPosts(data);
     } catch (error) {
-      throw new Error("Failed to feching posts");
+      alert("Failed to feching posts");
     }
   };
   useEffect(() => {
@@ -33,7 +34,7 @@ const Posts = (props) => {
         <>
           Posts-User {props.userId}{" "}
           <button onClick={addPostWindow} style={{ border: "2px solid black" }}>
-            Add
+            Add Post
           </button>
           <div
             style={{
