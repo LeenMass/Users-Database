@@ -5,12 +5,13 @@ import OtherData from "./OtherData";
 import Todos from "../Todos/Todos";
 import Posts from "../Posts/Posts";
 
-const User = (props) => {
+const User = ({ userData, deleteuser }) => {
   const [edit, setEdit] = useState(false);
-  const [updatuser, setUpdateuser] = useState(props.data);
+  const [updatuser, setUpdateuser] = useState(props.userData);
   const [Isexist, setIsExist] = useState(false);
   const [isShow, setIsshow] = useState(false);
   const [completedTodos, setIscompletedTodos] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdateuser({
@@ -21,7 +22,7 @@ const User = (props) => {
 
   const updateUserD = async () => {
     try {
-      const data = await updateUser(props.data.id, updatuser);
+      const data = await updateUser(data.id, updatuser);
       setUpdateuser(data);
       setEdit(false);
     } catch (error) {
@@ -33,8 +34,8 @@ const User = (props) => {
   };
   const deleteUserD = async () => {
     try {
-      await deleteUser(props.data.id);
-      props.deleteuser(props.data.id);
+      await deleteUser(userData.id);
+      deleteuser(userData.id);
     } catch (error) {
       alert("Failed to delete this user");
     }
@@ -113,12 +114,9 @@ const User = (props) => {
 
         {isShow ? (
           <div style={{ float: "right" }}>
-            <Todos
-              userId={props.data.id}
-              setIscompleted={setIscompletedTodos}
-            />
+            <Todos userId={userData.id} setIscompleted={setIscompletedTodos} />
             <br />
-            <Posts userId={props.data.id} />
+            <Posts userId={userData.id} />
           </div>
         ) : (
           ""

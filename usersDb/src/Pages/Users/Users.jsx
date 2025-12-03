@@ -49,7 +49,7 @@ const Users = () => {
             .map((user) => {
               return (
                 <User
-                  data={user}
+                  userData={user}
                   key={user.id}
                   deleteuser={handleUserDeleted}
                   style={{ display: "block" }}
