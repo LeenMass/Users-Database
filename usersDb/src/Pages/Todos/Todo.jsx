@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-
-const Todo = (props) => {
+const Todo = ({ data, mark, clickBtn }) => {
   return (
     <div
       style={{
@@ -11,11 +9,11 @@ const Todo = (props) => {
       }}
     >
       <strong>Title:</strong>
-      {props.data?.title}
+      {data?.title}
       <br />
 
       <strong>Completed:</strong>
-      {props.mark ? (
+      {mark ? (
         "True"
       ) : (
         <>
@@ -29,7 +27,7 @@ const Todo = (props) => {
               marginBottom: "5px",
               marginLeft: "94px",
             }}
-            onClick={props.clickBtn}
+            onClick={clickBtn}
           >
             Mark completed
           </button>
