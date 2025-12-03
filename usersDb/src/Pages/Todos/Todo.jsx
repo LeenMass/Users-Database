@@ -1,13 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Todo = (props) => {
-  const [mark, setMark] = useState(props.data.completed);
-
-  const click = () => {
-    setMark(!mark);
-    props.changeColor(!mark);
-  };
-
   return (
     <div
       style={{
@@ -22,7 +15,7 @@ const Todo = (props) => {
       <br />
 
       <strong>Completed:</strong>
-      {mark ? (
+      {props.mark ? (
         "True"
       ) : (
         <>
@@ -36,7 +29,7 @@ const Todo = (props) => {
               marginBottom: "5px",
               marginLeft: "94px",
             }}
-            onClick={click}
+            onClick={props.clickBtn}
           >
             Mark completed
           </button>

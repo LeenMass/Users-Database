@@ -20,7 +20,6 @@ const AddPost = (props) => {
       alert("Failed to add new post");
     }
   };
-  console.log(newPost);
   return (
     <>
       New Post-User{props.userId}
@@ -30,14 +29,21 @@ const AddPost = (props) => {
           border: "2px solid black",
           width: "270px",
           marginLeft: "30px",
+          display: "flex",
+          marginTop: "6px",
+          flexDirection: "column",
+          alignContent: "center",
+          alignItems: "center",
         }}
       >
         <strong>Title:</strong>{" "}
         <input type="text" name="title" onChange={handleChange} />
         <strong>Body:</strong>{" "}
         <input type="text" name="body" onChange={handleChange} />
-        <button onClick={addNewPost}>Add</button>
-        <button onClick={props.func}>Cancel</button>
+        <div>
+          <button onClick={addNewPost}>Add</button>
+          <button onClick={props.func}>Cancel</button>
+        </div>
       </div>
     </>
   );

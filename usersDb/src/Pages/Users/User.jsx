@@ -6,22 +6,18 @@ import Todos from "../Todos/Todos";
 import Posts from "../Posts/Posts";
 
 const User = (props) => {
+  console.log(props.data);
   const [edit, setEdit] = useState(false);
   const [updatuser, setUpdateuser] = useState(props.data);
   const [Isexist, setIsExist] = useState(false);
-  const [completed, setIscompleted] = useState(true);
   const [isShow, setIsshow] = useState(false);
-  const [todof, setTodof] = useState([]);
-
+  const [completedTodos, setIscompletedTodos] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdateuser({
       ...updatuser,
       [name]: value,
     });
-  };
-  const changeColor = (f) => {
-    setTodof([...todof, f]);
   };
 
   const updateUserD = async () => {
@@ -44,15 +40,12 @@ const User = (props) => {
       alert("Failed to delete this user");
     }
   };
-  useEffect(() => {
-    let x = todof.every((e) => e !== true);
-    setIscompleted(!x);
-  }, [completed]);
+  useEffect(() => {}, [completedTodos]);
   return (
     <>
       <div style={{ display: "flex" }}>
         <div
-          className={completed ? "greendiv" : "maindiv"}
+          className={completedTodos ? "greendiv" : "maindiv"}
           style={{
             backgroundColor: isShow ? "orange" : "",
           }}
@@ -121,7 +114,10 @@ const User = (props) => {
 
         {isShow ? (
           <div style={{ float: "right" }}>
-            <Todos userId={props.data.id} changeColor={changeColor} />
+            <Todos
+              userId={props.data.id}
+              setIscompleted={setIscompletedTodos}
+            />
             <br />
             <Posts userId={props.data.id} />
           </div>

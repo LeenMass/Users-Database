@@ -6,11 +6,16 @@ import AddTodo from "./AddTodo";
 const Todos = (props) => {
   const [todos, setTodos] = useState([]);
   const [click, setClick] = useState(false);
-  const [close, setClose] = useState(false);
 
   const btn = () => {
     setClick(!click);
-    setClose(!close);
+  };
+
+  const markTodoCompleted = (id) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: true } : todo
+    );
+    setTodos(updatedTodos);
   };
 
   const getAllTodos = async () => {
@@ -21,12 +26,23 @@ const Todos = (props) => {
       alert("Failed to get todos");
     }
   };
+
   const todosCallback = (newtodo) => {
     setTodos([...todos, newtodo]);
   };
+
   useEffect(() => {
     getAllTodos();
   }, []);
+
+  useEffect(() => {
+    if (todos.length > 0) {
+      const allCompleted = todos.every((todo) => todo.completed === true);
+      if (allCompleted) {
+        props.setIscompleted(true);
+      }
+    }
+  }, [todos]);
 
   return (
     <div>
@@ -49,11 +65,12 @@ const Todos = (props) => {
                 <Todo
                   data={todo}
                   key={todo.id}
-                  changeColor={props.changeColor}
+                  mark={todo.completed}
+                  clickBtn={() => markTodoCompleted(todo.id)}
                 />
               );
             })}
-          </div>{" "}
+          </div>
         </>
       ) : (
         <AddTodo userId={props.userId} func={btn} callback={todosCallback} />
