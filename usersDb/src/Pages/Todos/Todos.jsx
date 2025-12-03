@@ -6,9 +6,11 @@ import AddTodo from "./AddTodo";
 const Todos = ({ setIscompleted, userId }) => {
   const [todos, setTodos] = useState([]);
   const [click, setClick] = useState(false);
+  const [cancel, setCancel] = useState(false);
 
-  const btn = () => {
+  const addTodoBtn = () => {
     setClick(!click);
+    setCancel(!cancel);
   };
 
   const markTodoCompleted = (id) => {
@@ -27,7 +29,7 @@ const Todos = ({ setIscompleted, userId }) => {
     }
   };
 
-  const todosCallback = (newtodo) => {
+  const addTodoToTodosArray = (newtodo) => {
     setTodos([...todos, newtodo]);
   };
 
@@ -50,7 +52,7 @@ const Todos = ({ setIscompleted, userId }) => {
       {!click ? (
         <>
           Todos-User {userId}
-          <button onClick={btn} style={{ border: "2px solid black" }}>
+          <button onClick={addTodoBtn} style={{ border: "2px solid black" }}>
             Add
           </button>
           <div
@@ -73,7 +75,11 @@ const Todos = ({ setIscompleted, userId }) => {
           </div>
         </>
       ) : (
-        <AddTodo userId={userId} func={btn} callback={todosCallback} />
+        <AddTodo
+          userId={userId}
+          addTodoBtn={addTodoBtn}
+          addTodoToTodosArray={addTodoToTodosArray}
+        />
       )}
     </div>
   );
