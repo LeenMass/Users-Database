@@ -7,7 +7,7 @@ import Posts from "../Posts/Posts";
 
 const User = ({ userData, deleteuser }) => {
   const [edit, setEdit] = useState(false);
-  const [updatuser, setUpdateuser] = useState(props.userData);
+  const [updatuser, setUpdateuser] = useState(userData);
   const [Isexist, setIsExist] = useState(false);
   const [isShow, setIsshow] = useState(false);
   const [completedTodos, setIscompletedTodos] = useState(false);
@@ -75,7 +75,7 @@ const User = ({ userData, deleteuser }) => {
                 onClick={() => setIsshow(!isShow)}
                 style={{ cursor: "grab" }}
               >
-                ID:{props.data.id}{" "}
+                ID:{userData.id}{" "}
               </strong>
               <br />
               <strong>Name: </strong>
