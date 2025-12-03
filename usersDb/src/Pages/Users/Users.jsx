@@ -36,14 +36,25 @@ const Users = () => {
     <div>
       {!addUser ? (
         <>
-          <input
-            type="search"
-            onChange={(e) => setSearchInput(e.target.value.toLocaleLowerCase())}
-            value={searchInput}
-          />
-          <button onClick={addUserWindow} style={{ border: "2px solid black" }}>
-            Add User
-          </button>
+          <div style={{ float: "left" }}>
+            <input
+              type="search"
+              placeholder="Search"
+              width={"140px"}
+              onChange={(e) =>
+                setSearchInput(e.target.value.toLocaleLowerCase())
+              }
+              value={searchInput}
+            />
+          </div>
+          <div>
+            <button
+              onClick={addUserWindow}
+              style={{ border: "2px solid black" }}
+            >
+              Add User
+            </button>
+          </div>
           {users
             .filter((user) => user.name.toLocaleLowerCase().match(searchInput))
             .map((user) => {

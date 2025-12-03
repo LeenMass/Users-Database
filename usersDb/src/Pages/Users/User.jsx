@@ -22,7 +22,7 @@ const User = ({ userData, deleteuser }) => {
 
   const updateUserD = async () => {
     try {
-      const data = await updateUser(data.id, updatuser);
+      const data = await updateUser(userData.id, updatuser);
       setUpdateuser(data);
       setEdit(false);
     } catch (error) {

@@ -33,7 +33,10 @@ const Posts = ({ userId }) => {
       {!addPost ? (
         <>
           Posts-User {userId}{" "}
-          <button onClick={addPostWindow} style={{ border: "2px solid black" }}>
+          <button
+            onClick={openAddingPostWindow}
+            style={{ border: "2px solid black" }}
+          >
             Add Post
           </button>
           <div
@@ -50,7 +53,7 @@ const Posts = ({ userId }) => {
         </>
       ) : (
         <AddPost
-          userId={props.userId}
+          userId={userId}
           openAddingPostWindow={openAddingPostWindow}
           addPostToPostsArray={addPostToPostsArray}
         />
