@@ -6,7 +6,6 @@ import Todos from "../Todos/Todos";
 import Posts from "../Posts/Posts";
 
 const User = (props) => {
-  console.log(props.data);
   const [edit, setEdit] = useState(false);
   const [updatuser, setUpdateuser] = useState(props.data);
   const [Isexist, setIsExist] = useState(false);
