@@ -3,7 +3,7 @@ import { getPostsPerUser } from "./postsUtils";
 import Post from "./Post";
 import AddPost from "./AddPost";
 
-const Posts = (props) => {
+const Posts = ({ userId }) => {
   const [posts, setPosts] = useState([]);
   const [addPost, setAddPost] = useState(false);
   const [cancel, setCancel] = useState(false);
@@ -18,7 +18,7 @@ const Posts = (props) => {
 
   const getAllPosts = async () => {
     try {
-      const data = await getPostsPerUser(props.userId);
+      const data = await getPostsPerUser(userId);
       setPosts(data);
     } catch (error) {
       alert("Failed to feching posts");
@@ -32,7 +32,7 @@ const Posts = (props) => {
       <br />
       {!addPost ? (
         <>
-          Posts-User {props.userId}{" "}
+          Posts-User {userId}{" "}
           <button onClick={addPostWindow} style={{ border: "2px solid black" }}>
             Add Post
           </button>
