@@ -8,11 +8,11 @@ const Posts = (props) => {
   const [addPost, setAddPost] = useState(false);
   const [cancel, setCancel] = useState(false);
 
-  const addPostWindow = () => {
+  const openAddingPostWindow = () => {
     setAddPost(!addPost);
     setCancel(!cancel);
   };
-  const postsCallback = (post) => {
+  const addPostToPostsArray = (post) => {
     setPosts([...posts, post]);
   };
 
@@ -51,8 +51,8 @@ const Posts = (props) => {
       ) : (
         <AddPost
           userId={props.userId}
-          func={addPostWindow}
-          callback={postsCallback}
+          openAddingPostWindow={openAddingPostWindow}
+          addPostToPostsArray={addPostToPostsArray}
         />
       )}
     </>
