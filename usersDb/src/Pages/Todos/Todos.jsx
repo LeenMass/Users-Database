@@ -3,7 +3,7 @@ import { getTodosPerUser } from "./todosUtils";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
-const Todos = (props) => {
+const Todos = ({ setIscompleted, userId }) => {
   const [todos, setTodos] = useState([]);
   const [click, setClick] = useState(false);
 
@@ -20,7 +20,7 @@ const Todos = (props) => {
 
   const getAllTodos = async () => {
     try {
-      const data = await getTodosPerUser(props.userId);
+      const data = await getTodosPerUser(userId);
       setTodos(data);
     } catch (error) {
       alert("Failed to get todos");
@@ -39,7 +39,7 @@ const Todos = (props) => {
     if (todos.length > 0) {
       const allCompleted = todos.every((todo) => todo.completed === true);
       if (allCompleted) {
-        props.setIscompleted(true);
+        setIscompleted(true);
       }
     }
   }, [todos]);
@@ -49,7 +49,7 @@ const Todos = (props) => {
       <br />
       {!click ? (
         <>
-          Todos-User {props.userId}
+          Todos-User {userId}
           <button onClick={btn} style={{ border: "2px solid black" }}>
             Add
           </button>
