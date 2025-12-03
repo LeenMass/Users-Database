@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { newTodoUser } from "./todosUtils";
 
-const AddTodo = (props) => {
-  const [newTodo, setNewTodo] = useState({ userId: props.userId, title: "" });
+const AddTodo = ({ addTodoBtn, addTodoToTodosArray, userId }) => {
+  const [newTodo, setNewTodo] = useState({ userId: userId, title: "" });
 
   const addNewTodo = async () => {
     try {
       const { data } = await newTodoUser(newTodo);
-      props.callback(data);
+      addTodoToTodosArray(data);
       alert("Adding Todo done Successfully");
     } catch (error) {
       alert("Failed to add todo");
@@ -16,7 +16,7 @@ const AddTodo = (props) => {
 
   return (
     <>
-      New Todo-User{props.userId}
+      New Todo-User{userId}
       <br />
       <div
         style={{
@@ -31,7 +31,7 @@ const AddTodo = (props) => {
           onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
         />
         <button onClick={addNewTodo}>Add</button>
-        <button onClick={props.func}>Cancel</button>
+        <button onClick={addTodoBtn}>Cancel</button>
       </div>
     </>
   );
