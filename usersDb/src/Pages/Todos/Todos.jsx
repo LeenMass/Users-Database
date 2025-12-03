@@ -73,7 +73,7 @@ const Todos = ({ setIscompleted, userId }) => {
           </div>
         </>
       ) : (
-        <AddTodo userId={props.userId} func={btn} callback={todosCallback} />
+        <AddTodo userId={userId} func={btn} callback={todosCallback} />
       )}
     </div>
   );
