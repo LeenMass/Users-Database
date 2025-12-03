@@ -1,4 +1,4 @@
-const OtherData = (props) => {
+const OtherData = ({ moreData, handleChange }) => {
   return (
     <div
       style={{
@@ -11,22 +11,22 @@ const OtherData = (props) => {
       <strong>Street:</strong>
       <input
         name="street"
-        defaultValue={props.moreData.address?.street}
-        onChange={props.data}
+        defaultValue={moreData.address?.street}
+        onChange={handleChange}
       />
       <br />
       <strong>City:</strong>
       <input
         name="city"
-        defaultValue={props.moreData.address?.city}
-        onChange={props.data}
+        defaultValue={moreData.address?.city}
+        onChange={handleChange}
       />
       <br />
       <strong>Zip Code:</strong>
       <input
         name="zipcode"
-        defaultValue={props.moreData.address?.zipcode}
-        onChange={props.data}
+        defaultValue={moreData.address?.zipcode}
+        onChange={handleChange}
       />
     </div>
   );

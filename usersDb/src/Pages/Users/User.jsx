@@ -92,7 +92,7 @@ const User = ({ userData, deleteuser }) => {
             Other Data
           </button>
           {Isexist ? (
-            <OtherData moreData={props.data} data={handleChange} />
+            <OtherData moreData={userData} handleChange={handleChange} />
           ) : (
             ""
           )}
