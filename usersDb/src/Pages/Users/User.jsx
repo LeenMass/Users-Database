@@ -40,7 +40,6 @@ const User = ({ userData, deleteuser }) => {
       alert("Failed to delete this user");
     }
   };
-  useEffect(() => {}, [completedTodos]);
   return (
     <>
       <div style={{ display: "flex" }}>
